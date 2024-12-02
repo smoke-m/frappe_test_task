@@ -9,12 +9,14 @@ def calculator():
     чтобы сложить два числа (12 + 7)
     """
     pyautogui.press("winleft", _pause=True)
-    time.sleep(0.5)
+    time.sleep(2)
     pyautogui.typewrite("calc", interval=0.2)
     time.sleep(0.5)
     pyautogui.press("enter")
     time.sleep(2)
-    pyautogui.press("12")
+    pyautogui.press("1")
+    time.sleep(0.5)
+    pyautogui.press("2")
     time.sleep(0.5)
     pyautogui.press("+")
     time.sleep(0.5)
@@ -45,4 +47,4 @@ def emulator():
 
 if __name__ == '__main__':
     calculator()
-    emulator()
+    # emulator()
