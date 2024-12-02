@@ -1,3 +1,5 @@
+import os
+
 import time
 import pyautogui
 
@@ -8,11 +10,16 @@ def calculator():
     Выполняет автоматизированные действия,
     чтобы сложить два числа (12 + 7)
     """
-    pyautogui.press("winleft", _pause=True)
-    time.sleep(2)
-    pyautogui.typewrite("calc", interval=0.2)
-    time.sleep(0.5)
-    pyautogui.press("enter")
+    # Запуск только с помощью pyautogui
+    # pyautogui.press("winleft", _pause=True)
+    # time.sleep(2)
+    # pyautogui.typewrite("calc", interval=0.2)
+    # time.sleep(0.5)
+    # pyautogui.press("enter")
+
+    # Запуск только с помощью os
+    os.system("calc")
+
     time.sleep(2)
     pyautogui.press("1")
     time.sleep(0.5)
@@ -47,4 +54,4 @@ def emulator():
 
 if __name__ == '__main__':
     calculator()
-    # emulator()
+    emulator()
