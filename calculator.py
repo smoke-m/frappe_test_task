@@ -12,7 +12,7 @@ cmd_img = dict(
         ("-", "screenshots/calcMinuskey.png"),
         ("*", "screenshots/calcMultkey.png"),
         ("/", "screenshots/calcDividkey.png"),
-        ("enter", "screenshots/calcEqukey.png"),
+        ("=", "screenshots/calcEqukey.png"),
         ("esc", "screenshots/calcEsckey.png"),
         ("0", "screenshots/calcNulkey.png"),
         ("1", "screenshots/calc1key.png"),
@@ -64,6 +64,6 @@ def mouse(task: tuple) -> None:
 
 if __name__ == '__main__':
     # в переменную task заносим действия
-    task = ("1", "2", "+", "7", "enter")
+    task = ("1", "2", "+", "7", "=")
     keyboard(task)
-    mouse(task)
+    # mouse(task)
