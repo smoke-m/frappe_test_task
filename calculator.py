@@ -66,4 +66,4 @@ if __name__ == '__main__':
     # в переменную task заносим действия
     task = ("1", "2", "+", "7", "=")
     keyboard(task)
-    # mouse(task)
+    mouse(task)
