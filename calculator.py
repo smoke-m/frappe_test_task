@@ -34,11 +34,11 @@ def keyboard(task: tuple) -> None:
     Выполняет задачу с помощью клавиатуры.
     """
     # Запуск только с помощью pyautogui
-    # pyautogui.press("winleft", _pause=True)
-    # time.sleep(2)
-    # pyautogui.typewrite("calc", interval=0.2)
-    # time.sleep(0.5)
-    # pyautogui.press("enter")
+    # press("winleft", _pause=True)
+    # sleep(2)
+    # typewrite("calc", interval=0.2)
+    # sleep(0.5)
+    # press("enter")
 
     # Запуск только с помощью os
     os.system("calc")
