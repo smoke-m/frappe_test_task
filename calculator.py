@@ -3,6 +3,11 @@ import pyautogui
 
 
 def calculator():
+    """
+    Открывает приложение Калькулятор
+    Выполняет автоматизированные действия,
+    чтобы сложить два числа (12 + 7)
+    """
     pyautogui.press("winleft", _pause=True)
     time.sleep(0.5)
     pyautogui.typewrite("calc", interval=0.2)
@@ -20,16 +25,24 @@ def calculator():
     pyautogui.press("esc")
 
 
+def pyautogui_click(img_png):
+    """Функция кликов."""
+    pyautogui.click(pyautogui.locateCenterOnScreen(img_png, confidence=0.9))
+
+
 def emulator():
-    # button_1_location = pyautogui.locateOnScreen(
-    #     "calc1key.png", confidence=0.9
-    #     )
-    # button1_x, button1_y = pyautogui.center(button_1_location)
-    button1_x, button1_y = pyautogui.locateCenterOnScreen(
-        "screenshots/calc1key.png"
-    )
-    pyautogui.click(button1_x, button1_y)
+    """
+    Эмуляции кликов по кнопкам 1, 2, +, 7, =
+    в интерфейсе калькулятора.
+    """
+    pyautogui_click("screenshots/calc1key.png")
+    pyautogui_click("screenshots/calc2key.png")
+    pyautogui_click("screenshots/calcPluskey.png")
+    pyautogui_click("screenshots/calc7key.png")
+    pyautogui_click("screenshots/calcEqukey.png")
+    pyautogui_click("screenshots/calcEsckey.png")
 
 
 if __name__ == '__main__':
+    calculator()
     emulator()
