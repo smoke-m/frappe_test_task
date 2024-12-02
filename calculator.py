@@ -1,14 +1,37 @@
 import os
-import time
+from time import sleep
 
-import pyautogui
+from pyautogui import click
+from pyautogui import locateCenterOnScreen
+from pyautogui import press
+
+# словарь соответствия команд к скринам
+cmd_img = dict(
+    [
+        ("+", "screenshots/calcPluskey.png"),
+        ("-", "screenshots/calcMinuskey.png"),
+        ("*", "screenshots/calcMultkey.png"),
+        ("/", "screenshots/calcDividkey.png"),
+        ("enter", "screenshots/calcEqukey.png"),
+        ("esc", "screenshots/calcEsckey.png"),
+        ("0", "screenshots/calcNulkey.png"),
+        ("1", "screenshots/calc1key.png"),
+        ("2", "screenshots/calc2key.png"),
+        ("3", "screenshots/calc3key.png"),
+        ("4", "screenshots/calc4key.png"),
+        ("5", "screenshots/calc5key.png"),
+        ("6", "screenshots/calc6key.png"),
+        ("7", "screenshots/calc7key.png"),
+        ("8", "screenshots/calc8key.png"),
+        ("9", "screenshots/calc9key.png"),
+    ]
+)
 
 
-def calculator():
+def keyboard(task: tuple) -> None:
     """
-    Открывает приложение Калькулятор
-    Выполняет автоматизированные действия,
-    чтобы сложить два числа (12 + 7)
+    Открывает приложение Калькулятор.
+    Выполняет задачу с помощью клавиатуры.
     """
     # Запуск только с помощью pyautogui
     # pyautogui.press("winleft", _pause=True)
@@ -19,39 +42,28 @@ def calculator():
 
     # Запуск только с помощью os
     os.system("calc")
+    sleep(2)
 
-    time.sleep(2)
-    pyautogui.press("1")
-    time.sleep(0.5)
-    pyautogui.press("2")
-    time.sleep(0.5)
-    pyautogui.press("+")
-    time.sleep(0.5)
-    pyautogui.press("7")
-    time.sleep(0.5)
-    pyautogui.press("enter")
-    time.sleep(0.5)
-    pyautogui.press("esc")
+    for btn in task:
+        press(btn)
+        sleep(0.5)
 
 
-def pyautogui_click(img_png):
-    """Функция кликов."""
-    pyautogui.click(pyautogui.locateCenterOnScreen(img_png, confidence=0.9))
-
-
-def emulator():
+def mouse(task: tuple) -> None:
     """
-    Эмуляции кликов по кнопкам 1, 2, +, 7, =
-    в интерфейсе калькулятора.
+    Открывает приложение Калькулятор.
+    Выполняет задачу с помощью мыши.
     """
-    pyautogui_click("screenshots/calc1key.png")
-    pyautogui_click("screenshots/calc2key.png")
-    pyautogui_click("screenshots/calcPluskey.png")
-    pyautogui_click("screenshots/calc7key.png")
-    pyautogui_click("screenshots/calcEqukey.png")
-    pyautogui_click("screenshots/calcEsckey.png")
+    os.system("calc")
+    sleep(2)
+
+    for btn in task:
+        click(locateCenterOnScreen(cmd_img.get(btn), confidence=0.9))
+        sleep(0.5)
 
 
 if __name__ == '__main__':
-    calculator()
-    emulator()
+    # в переменную task заносим действия
+    task = ("1", "2", "+", "7", "enter")
+    keyboard(task)
+    mouse(task)
